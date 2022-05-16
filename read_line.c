@@ -1,4 +1,4 @@
-#iinclude "simple_shell.h"
+#include "simple_shell.h"
 /**
  * read_line - read a line from the standard input
  * @data: pointer to the struct of data
