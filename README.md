@@ -12,10 +12,10 @@ Write a simple UNIX command interpreter.
 
 # Read or watch:
 
-    [Unix shell](https://alx-intranet.hbtn.io/rltoken/f0YU9TAhniMXWlSXtb64Yw)
-    [Thompson shell](https://alx-intranet.hbtn.io/rltoken/7LJOp2qP7qHUcsOK2-F3qA)
-    [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
-    [Everything you need to know to start coding your own shell concept page](https://alx-intranet.hbtn.io/concepts/64)
+[Unix shell](https://alx-intranet.hbtn.io/rltoken/f0YU9TAhniMXWlSXtb64Yw)
+[Thompson shell](https://alx-intranet.hbtn.io/rltoken/7LJOp2qP7qHUcsOK2-F3qA)
+[Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
+[Everything you need to know to start coding your own shell concept page](https://alx-intranet.hbtn.io/concepts/64)
 
 man or help:
 
