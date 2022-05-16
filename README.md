@@ -1,6 +1,8 @@
 # 0x16. C - Simple Shell
 
 #GROUPWORK
+# contributors
+Clive Sasaka and Bashir Billow
 
 # Background Context
 
@@ -10,10 +12,10 @@ Write a simple UNIX command interpreter.
 
 # Read or watch:
 
-    Unix shell
-    Thompson shell
-    Ken Thompson
-    Everything you need to know to start coding your own shell concept page
+    [Unix shell](https://alx-intranet.hbtn.io/rltoken/f0YU9TAhniMXWlSXtb64Yw)
+    [Thompson shell](https://alx-intranet.hbtn.io/rltoken/7LJOp2qP7qHUcsOK2-F3qA)
+    [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)
+    [Everything you need to know to start coding your own shell concept page](https://alx-intranet.hbtn.io/concepts/64)
 
 man or help:
 
@@ -144,6 +146,3 @@ hsh main.c shell.c test_ls_2
 hsh main.c shell.c test_ls_2
 $
 
-# Checks
-
-The Checker will be released at the end of the project (1-2 days before the deadline). We strongly encourage the entire class to work together to create a suite of checks covering both regular tests and edge cases for each task. See task 8. Test suite.
