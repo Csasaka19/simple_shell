@@ -1,73 +1,48 @@
-#include "main.h"
+#include "simple_shell.h"
 
 /**
- * free_data - frees data structure
- *
- * @datash: data structure
- * Return: no return
- */
-void free_data(data_shell *datash)
+  * main - read the code
+  * Return: 0 on error
+  */
+int main(void)
 {
-	unsigned int i;
+sh_t data;
+int pl;
 
-	for (i = 0; datash->_environ[i]; i++)
-	{
-		free(datash->_environ[i]);
-	}
-
-	free(datash->_environ);
-	free(datash->pid);
+_memset((void *)&data, 0, sizeof(data));
+signal(SIGINT, signal_handler);
+while (1)
+{
+index_cmd(&data);
+if (read_line(&data) < 0)
+{
+if (isatty(STDIN_FILENO))
+PRINT("\n");
+break;
 }
-
-/**
- * set_data - Initialize data structure
- *
- * @datash: data structure
- * @av: argument vector
- * Return: no return
- */
-void set_data(data_shell *datash, char **av)
+if (split_line(&data) < 0)
 {
-	unsigned int i;
-
-	datash->av = av;
-	datash->input = NULL;
-	datash->args = NULL;
-	datash->status = 0;
-	datash->counter = 1;
-
-	for (i = 0; environ[i]; i++)
-		;
-
-	datash->_environ = malloc(sizeof(char *) * (i + 1));
-
-	for (i = 0; environ[i]; i++)
-	{
-		datash->_environ[i] = _strdup(environ[i]);
-	}
-
-	datash->_environ[i] = NULL;
-	datash->pid = aux_itoa(getpid());
+free_data(&data);
+continue;
 }
-
-/**
- * main - Entry point
- *
- * @ac: argument count
- * @av: argument vector
- *
- * Return: 0 on success.
- */
-int main(int ac, char **av)
+pl = parse_line(&data);
+if (pl == 0)
 {
-	data_shell datash;
-	(void) ac;
-
-	signal(SIGINT, get_sigint);
-	set_data(&datash, av);
-	shell_loop(&datash);
-	free_data(&datash);
-	if (datash.status < 0)
-		return (255);
-	return (datash.status);
+free_data(&data);
+continue;
+}
+if (pl < 0)
+{
+print_error(&data);
+continue;
+}
+if (process_cmd(&data) < 0)
+{
+print_error(&data);
+break;
+}
+free_data(&data);
+}
+free_data(&data);
+exit(EXIT_SUCCESS);
 }
