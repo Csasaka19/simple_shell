@@ -2,7 +2,7 @@
 
 #GROUPWORK
 # contributors
-Clive Sasaka and Bashir Billow
+Bashir Billow and Clive Sasaka 
 
 # Background Context
 
