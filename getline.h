@@ -16,9 +16,9 @@
  */
 typedef struct buf_s
 {
-char buffer[GETLINE_BUFFER_SIZE];
-char *next;
-size_t remaining;
+	char buffer[GETLINE_BUFFER_SIZE];
+	char *next;
+	size_t remaining;
 } buf_t;
 
 #define GETLINE_TABLE_SIZE 127
@@ -31,9 +31,9 @@ size_t remaining;
  */
 typedef struct buf_table_node_s
 {
-int fd;
-struct buf_s buf;
-struct buf_table_node_s *next;
+	int fd;
+	struct buf_s buf;
+	struct buf_table_node_s *next;
 } buf_table_node_t;
 
 typedef buf_table_node_t *buf_table_t[GETLINE_TABLE_SIZE];

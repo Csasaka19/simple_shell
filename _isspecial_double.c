@@ -7,5 +7,5 @@
  */
 int _isspecial_double(char c)
 {
-return (c == '"' || c == '$' || c == '\\');
+	return (c == '"' || c == '$' || c == '\\');
 }

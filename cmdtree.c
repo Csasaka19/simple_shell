@@ -9,7 +9,7 @@
  */
 cmdtree_t *cmd_to_tree(const char * const *tokens __attribute__((unused)))
 {
-return (NULL);
+	return (NULL);
 }
 
 /**
@@ -19,11 +19,11 @@ return (NULL);
  */
 void free_cmdtree(cmdtree_t **rootptr)
 {
-if (rootptr && *rootptr)
-{
-free_cmdtree(&((*rootptr)->success));
-free_cmdtree(&((*rootptr)->failure));
-(*rootptr)->tokens = NULL;
-(*rootptr) = NULL;
-}
+	if (rootptr && *rootptr)
+	{
+		free_cmdtree(&((*rootptr)->success));
+		free_cmdtree(&((*rootptr)->failure));
+		(*rootptr)->tokens = NULL;
+		(*rootptr) = NULL;
+	}
 }

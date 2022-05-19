@@ -9,18 +9,18 @@
   */
 ssize_t _strnchr(const char *str, char chr, size_t n)
 {
-ssize_t index;
+	ssize_t index;
 
-if (!str)
-return (-1);
+	if (!str)
+		return (-1);
 
-for (index = 0; n && str[index]; --n, ++index)
-{
-if (str[index] == chr)
-return (index);
-}
+	for (index = 0; n && str[index]; --n, ++index)
+	{
+		if (str[index] == chr)
+			return (index);
+	}
 
-return (-1);
+	return (-1);
 }
 
 
@@ -37,25 +37,25 @@ return (-1);
  */
 char *_strndup(const char *str, size_t n)
 {
-char *dup;
-size_t len = 0;
+	char *dup;
+	size_t len = 0;
 
-if (!str)
-return (NULL);
+	if (!str)
+		return (NULL);
 
-while (n && str[len])
---n, ++len;
+	while (n && str[len])
+		--n, ++len;
 
-dup = malloc(sizeof(char) * (len + 1));
-if (!dup)
-return (NULL);
+	dup = malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (NULL);
 
-dup[len] = '\0';
+	dup[len] = '\0';
 
-while (len--)
-dup[len] = str[len];
+	while (len--)
+		dup[len] = str[len];
 
-return (dup);
+	return (dup);
 }
 
 
@@ -67,15 +67,15 @@ return (dup);
  */
 ssize_t _strnlen(const char *str, size_t n)
 {
-const char *pos = str;
+	const char *pos = str;
 
-if (!str)
-return (-1);
+	if (!str)
+		return (-1);
 
-while (n && *pos)
---n, ++pos;
+	while (n && *pos)
+		--n, ++pos;
 
-return (pos - str);
+	return (pos - str);
 }
 
 
@@ -91,20 +91,21 @@ return (pos - str);
  */
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
-for (; n && *s1 && *s2; --n, ++s1, ++s2)
-{
-if (*s1 != *s2)
-return (*s1 - *s2);
-}
+	for (; n && *s1 && *s2; --n, ++s1, ++s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+	}
 
-if (n)
-{
-if (*s1)
-return (1);
-if (*s2)
-return (-1);
-}
-return (0);
+	if (n)
+	{
+		if (*s1)
+			return (1);
+		if (*s2)
+			return (-1);
+	}
+
+	return (0);
 }
 
 
@@ -122,12 +123,12 @@ return (0);
 
 char *_strncpy(char *dest, const char *src, size_t n)
 {
-char *pos = dest;
+	char *pos = dest;
 
-for ( ; n && *src; --n)
-*pos++ = *src++;
-if (n)
-*pos = '\0';
+	for ( ; n && *src; --n)
+		*pos++ = *src++;
+	if (n)
+		*pos = '\0';
 
-return (dest);
+	return (dest);
 }

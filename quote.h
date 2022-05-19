@@ -16,11 +16,11 @@
  */
 typedef enum quote_state
 {
-QUOTE_NONE   = 0x0,
-QUOTE_WORD   = 0x1,
-QUOTE_DOUBLE = 0x2,
-QUOTE_SINGLE = 0x4,
-QUOTE_ESCAPE = 0x8
+	QUOTE_NONE   = 0x0,
+	QUOTE_WORD   = 0x1,
+	QUOTE_DOUBLE = 0x2,
+	QUOTE_SINGLE = 0x4,
+	QUOTE_ESCAPE = 0x8
 } quote_state_t;
 
 typedef size_t (*quote_state_fp)(const char *, quote_state_t *);

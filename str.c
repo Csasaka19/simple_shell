@@ -8,18 +8,18 @@
   */
 ssize_t _strchr(const char *str, char chr)
 {
-ssize_t index;
+	ssize_t index;
 
-if (!str)
-return (-1);
+	if (!str)
+		return (-1);
 
-for (index = 0; str[index]; ++index)
-{
-if (str[index] == chr)
-return (index);
-}
+	for (index = 0; str[index]; ++index)
+	{
+		if (str[index] == chr)
+			return (index);
+	}
 
-return (-1);
+	return (-1);
 }
 
 
@@ -31,23 +31,23 @@ return (-1);
  */
 char *_strdup(const char *str)
 {
-char *dup;
-size_t size = 0;
+	char *dup;
+	size_t size = 0;
 
-if (!str)
-return (NULL);
+	if (!str)
+		return (NULL);
 
-while (str[size++])
-;
+	while (str[size++])
+		;
 
-dup = malloc(sizeof(char) * size);
-if (!dup)
-return (NULL);
+	dup = malloc(sizeof(char) * size);
+	if (!dup)
+		return (NULL);
 
-while (size--)
-dup[size] = str[size];
+	while (size--)
+		dup[size] = str[size];
 
-return (dup);
+	return (dup);
 }
 
 
@@ -58,15 +58,15 @@ return (dup);
  */
 ssize_t _strlen(const char *str)
 {
-const char *pos = str;
+	const char *pos = str;
 
-if (!str)
-return (-1);
+	if (!str)
+		return (-1);
 
-while (*pos)
-++pos;
+	while (*pos)
+		++pos;
 
-return (pos - str);
+	return (pos - str);
 }
 
 
@@ -80,17 +80,18 @@ return (pos - str);
  */
 int _strcmp(const char *s1, const char *s2)
 {
-for (; *s1 && *s2; ++s1, ++s2)
-{
-if (*s1 != *s2)
-return (*s1 - *s2);
-}
-if (*s1)
-return (1);
-if (*s2)
-return (-1);
+	for (; *s1 && *s2; ++s1, ++s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+	}
 
-return (0);
+	if (*s1)
+		return (1);
+	if (*s2)
+		return (-1);
+
+	return (0);
 }
 
 
@@ -102,11 +103,11 @@ return (0);
  */
 char *_strcpy(char *dest, const char *src)
 {
-char *pos = dest;
+	char *pos = dest;
 
-while (*src)
-*pos++ = *src++;
-*pos = '\0';
+	while (*src)
+		*pos++ = *src++;
+	*pos = '\0';
 
-return (dest);
+	return (dest);
 }

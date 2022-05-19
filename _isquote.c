@@ -7,5 +7,5 @@
  */
 bool _isquote(int c)
 {
-return (c == '"' || c == '\'' || c == '\\');
+	return (c == '"' || c == '\'' || c == '\\');
 }

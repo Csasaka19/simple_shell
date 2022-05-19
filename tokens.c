@@ -8,42 +8,44 @@
  */
 char **tokenize(const char *str)
 {
-char **tokens;
-const char *tok;
-size_t count;
-quote_state_t state;
+	char **tokens;
+	const char *tok;
+	size_t count;
+	quote_state_t state;
 
-if (!str)
-return (NULL);
+	if (!str)
+		return (NULL);
 
-tokens = malloc(sizeof(char *) * (count_tokens(str) + 1));
-if (!tokens)
-return (NULL);
-for (count = 0; *(str += quote_state_len(str, QUOTE_NONE)); ++count)
-{
-tok = str;
+	tokens = malloc(sizeof(char *) * (count_tokens(str) + 1));
+	if (!tokens)
+		return (NULL);
 
-while (*str && (state = quote_state(*str)) != QUOTE_NONE)
-{
-if (state & (QUOTE_DOUBLE | QUOTE_SINGLE | QUOTE_ESCAPE))
-str += quote_state_len(str + 1, state) + 1;
-else
-str += quote_state_len(str, state);
+	for (count = 0; *(str += quote_state_len(str, QUOTE_NONE)); ++count)
+	{
+		tok = str;
 
-if (*str && (state & (QUOTE_DOUBLE | QUOTE_SINGLE)))
-++str;
-}
-tokens[count] = _memdup(tok, str - tok + 1);
-if (!tokens[count])
-{
-free_tokens(&tokens);
-return (NULL);
-}
-tokens[count][str - tok] = '\0';
-}
-tokens[count] = NULL;
+		while (*str && (state = quote_state(*str)) != QUOTE_NONE)
+		{
+			if (state & (QUOTE_DOUBLE | QUOTE_SINGLE | QUOTE_ESCAPE))
+				str += quote_state_len(str + 1, state) + 1;
+			else
+				str += quote_state_len(str, state);
 
-return (tokens);
+			if (*str && (state & (QUOTE_DOUBLE | QUOTE_SINGLE)))
+				++str;
+		}
+
+		tokens[count] = _memdup(tok, str - tok + 1);
+		if (!tokens[count])
+		{
+			free_tokens(&tokens);
+			return (NULL);
+		}
+		tokens[count][str - tok] = '\0';
+	}
+	tokens[count] = NULL;
+
+	return (tokens);
 }
 
 
@@ -54,23 +56,23 @@ return (tokens);
  */
 size_t count_tokens(const char *str)
 {
-size_t count;
-quote_state_t state;
+	size_t count;
+	quote_state_t state;
 
-for (count = 0; *(str += quote_state_len(str, QUOTE_NONE)); ++count)
-{
-while (*str && (state = quote_state(*str)) != QUOTE_NONE)
-{
-if (state & (QUOTE_DOUBLE | QUOTE_SINGLE | QUOTE_ESCAPE))
-str += quote_state_len(str + 1, state) + 1;
-else
-str += quote_state_len(str, state);
+	for (count = 0; *(str += quote_state_len(str, QUOTE_NONE)); ++count)
+	{
+		while (*str && (state = quote_state(*str)) != QUOTE_NONE)
+		{
+			if (state & (QUOTE_DOUBLE | QUOTE_SINGLE | QUOTE_ESCAPE))
+				str += quote_state_len(str + 1, state) + 1;
+			else
+				str += quote_state_len(str, state);
 
-if (*str && (state & (QUOTE_DOUBLE | QUOTE_SINGLE)))
-++str;
-}
-}
-return (count);
+			if (*str && (state & (QUOTE_DOUBLE | QUOTE_SINGLE)))
+				++str;
+		}
+	}
+	return (count);
 }
 
 
@@ -82,39 +84,40 @@ return (count);
  */
 char **tokenize_noquote(const char *str)
 {
-char **tokens;
-const char *tok;
-size_t count;
+	char **tokens;
+	const char *tok;
+	size_t count;
 
-if (!str)
-return (NULL);
+	if (!str)
+		return (NULL);
 
-tokens = malloc(sizeof(char *) * (count_tokens_noquote(str) + 1));
-if (!tokens)
-return (NULL);
+	tokens = malloc(sizeof(char *) * (count_tokens_noquote(str) + 1));
+	if (!tokens)
+		return (NULL);
 
-for (count = 0; *str; ++count)
-{
-while (_isspace(*str))
-++str;
-if (!*str)
-break;
+	for (count = 0; *str; ++count)
+	{
+		while (_isspace(*str))
+			++str;
+		if (!*str)
+			break;
 
-tok = str;
-do {
-++str;
-} while (*str && !_isspace(*str));
+		tok = str;
+		do {
+			++str;
+		} while (*str && !_isspace(*str));
 
-tokens[count] = _memdup(tok, str - tok + 1);
-if (!tokens[count])
-{
-free_tokens(&tokens);
-return (NULL);
-}
-tokens[count][str - tok] = '\0';
-}
-tokens[count] = NULL;
-return (tokens);
+		tokens[count] = _memdup(tok, str - tok + 1);
+		if (!tokens[count])
+		{
+			free_tokens(&tokens);
+			return (NULL);
+		}
+		tokens[count][str - tok] = '\0';
+	}
+	tokens[count] = NULL;
+
+	return (tokens);
 }
 
 
@@ -126,19 +129,19 @@ return (tokens);
  */
 size_t count_tokens_noquote(const char *str)
 {
-size_t tok_count;
+	size_t tok_count;
 
-for (tok_count = 0; *str; ++tok_count)
-{
-while (_isspace(*str))
-++str;
-if (!*str)
-break;
-do {
-++str;
-} while (*str && !_isspace(*str));
-}
-return (tok_count);
+	for (tok_count = 0; *str; ++tok_count)
+	{
+		while (_isspace(*str))
+			++str;
+		if (!*str)
+			break;
+		do {
+			++str;
+		} while (*str && !_isspace(*str));
+	}
+	return (tok_count);
 }
 
 
@@ -148,18 +151,18 @@ return (tok_count);
  */
 void free_tokens(char ***tokens)
 {
-char **tok;
+	char **tok;
 
-if (!tokens)
-return;
+	if (!tokens)
+		return;
 
-tok = *tokens;
-if (!tok)
-return;
+	tok = *tokens;
+	if (!tok)
+		return;
 
-while (*tok)
-free(*tok++);
-free(*tokens);
+	while (*tok)
+		free(*tok++);
+	free(*tokens);
 
-*tokens = NULL;
+	*tokens = NULL;
 }

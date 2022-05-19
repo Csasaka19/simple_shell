@@ -12,9 +12,9 @@
   */
 struct history
 {
-struct list *head;
-char *filename;
-size_t n;
+	struct list *head;
+	char *filename;
+	size_t n;
 };
 
 #endif /* _HISTORY_H_ */

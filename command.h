@@ -16,10 +16,10 @@
  */
 typedef enum cmdlist_sep_n
 {
-SEMICOLON = 1,
-AMPERSAND = 2,
-AND       = 4,
-OR        = 8
+	SEMICOLON = 1,
+	AMPERSAND = 2,
+	AND       = 4,
+	OR        = 8
 } cmdlist_sep_n_t;
 
 /**
@@ -29,8 +29,8 @@ OR        = 8
  */
 typedef struct cmdlist_sep
 {
-const char *sep;
-enum cmdlist_sep_n n;
+	const char *sep;
+	enum cmdlist_sep_n n;
 } cmdlist_sep_t;
 
 /**
@@ -41,9 +41,9 @@ enum cmdlist_sep_n n;
  */
 struct cmdlist
 {
-struct cmdlist *next;
-struct cmdtree *tree;
-char **tokens;
+	struct cmdlist *next;
+	struct cmdtree *tree;
+	char **tokens;
 };
 
 /**
@@ -55,10 +55,10 @@ char **tokens;
  */
 struct cmdtree
 {
-struct cmdtree *success;
-struct cmdtree *failure;
-const char * const *tokens;
-struct cmdlist_sep sep;
+	struct cmdtree *success;
+	struct cmdtree *failure;
+	const char * const *tokens;
+	struct cmdlist_sep sep;
 };
 
 cmdlist_t *cmd_to_list(const char *cmd);

@@ -10,19 +10,19 @@
  */
 ssize_t _memchr(const void *src, unsigned char chr, size_t n)
 {
-const unsigned char *mem = src;
-ssize_t i = 0;
+	const unsigned char *mem = src;
+	ssize_t i = 0;
 
-if (src)
-{
-while (n--)
-{
-if (mem[i] == chr)
-return (i);
-i += 1;
-}
-}
-return (-1);
+	if (src)
+	{
+		while (n--)
+		{
+			if (mem[i] == chr)
+				return (i);
+			i += 1;
+		}
+	}
+	return (-1);
 }
 
 /**
@@ -38,15 +38,15 @@ return (-1);
  */
 void *_memcpy(void *dest, const void *src, size_t n)
 {
-unsigned char *w_pos = dest;
-const unsigned char *r_pos = src;
+	unsigned char *w_pos = dest;
+	const unsigned char *r_pos = src;
 
-if (dest && src)
-{
-while (n--)
-*w_pos++ = *r_pos++;
-}
-return (dest);
+	if (dest && src)
+	{
+		while (n--)
+			*w_pos++ = *r_pos++;
+	}
+	return (dest);
 }
 
 /**
@@ -58,15 +58,16 @@ return (dest);
  */
 void *_memdup(const void *src, size_t n)
 {
-void *dup = malloc(n);
-unsigned char *w_pos = dup;
-const unsigned char *r_pos = src;
-if (dup)
-{
-while (n--)
-*w_pos++ = *r_pos++;
-}
-return (dup);
+	void *dup = malloc(n);
+	unsigned char *w_pos = dup;
+	const unsigned char *r_pos = src;
+
+	if (dup)
+	{
+		while (n--)
+			*w_pos++ = *r_pos++;
+	}
+	return (dup);
 }
 
 /**
@@ -78,11 +79,12 @@ return (dup);
  */
 void *_memset(void *dest, unsigned char chr, size_t n)
 {
-unsigned char *mem = dest;
-if (dest)
-{
-while (n--)
-*mem++ = chr;
-}
-return (dest);
+	unsigned char *mem = dest;
+
+	if (dest)
+	{
+		while (n--)
+			*mem++ = chr;
+	}
+	return (dest);
 }

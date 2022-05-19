@@ -7,14 +7,14 @@
   */
 bool _isnumber(const char *s)
 {
-if (s)
-{
-while (*s)
-{
-if (!_isdigit(*s++))
-return (false);
-}
-return (true);
-}
-return (false);
+	if (s)
+	{
+		while (*s)
+		{
+			if (!_isdigit(*s++))
+				return (false);
+		}
+		return (true);
+	}
+	return (false);
 }

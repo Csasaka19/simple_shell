@@ -14,9 +14,9 @@
   */
 struct dict
 {
-char *key;
-char *val;
-struct dict *next;
+	char *key;
+	char *val;
+	struct dict *next;
 };
 
 char *get_dict_val(dict_t *head, const char *key);

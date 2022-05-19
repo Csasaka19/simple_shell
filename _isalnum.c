@@ -7,5 +7,5 @@
   */
 bool _isalnum(int c)
 {
-return (_isalpha(c) || _isdigit(c));
+	return (_isalpha(c) || _isdigit(c));
 }

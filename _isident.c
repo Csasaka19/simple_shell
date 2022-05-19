@@ -7,5 +7,5 @@
   */
 bool _isident(int c)
 {
-return (c == '_' || _isalnum(c));
+	return (c == '_' || _isalnum(c));
 }

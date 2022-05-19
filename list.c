@@ -8,15 +8,15 @@
  */
 list_t *str_to_list(const char *str, char delim)
 {
-list_t *head = NULL;
+	list_t *head = NULL;
 
-if (!str)
-return (NULL);
+	if (!str)
+		return (NULL);
 
-if (!_str_to_list(&head, str, delim))
-free_list(&head);
+	if (!_str_to_list(&head, str, delim))
+		free_list(&head);
 
-return (head);
+	return (head);
 }
 
 
@@ -30,26 +30,26 @@ return (head);
  */
 list_t *_str_to_list(list_t **tailptr, const char *str, char delim)
 {
-list_t *tail;
-ssize_t len = _strchr(str, delim);
+	list_t *tail;
+	ssize_t len = _strchr(str, delim);
 
-if (len == -1)
-len = _strlen(str);
+	if (len == -1)
+		len = _strlen(str);
 
-tail = add_node_end(tailptr, NULL);
-if (!tail)
-return (NULL);
+	tail = add_node_end(tailptr, NULL);
+	if (!tail)
+		return (NULL);
 
-tail->str = _memdup(str, len + 1);
-if (!tail->str)
-return (NULL);
+	tail->str = _memdup(str, len + 1);
+	if (!tail->str)
+		return (NULL);
 
-tail->str[len] = '\0';
+	tail->str[len] = '\0';
 
-if (str[len])
-return (_str_to_list(&tail, str + len + 1, delim));
+	if (str[len])
+		return (_str_to_list(&tail, str + len + 1, delim));
 
-return (tail);
+	return (tail);
 }
 
 
@@ -62,20 +62,21 @@ return (tail);
  */
 list_t *add_node(list_t **headptr, const char *str)
 {
-list_t *new;
-if (!headptr)
-return (NULL);
+	list_t *new;
 
-new = malloc(sizeof(list_t));
-if (!new)
-return (NULL);
+	if (!headptr)
+		return (NULL);
 
-new->str = _strdup(str);
-new->next = *headptr;
+	new = malloc(sizeof(list_t));
+	if (!new)
+		return (NULL);
 
-*headptr = new;
+	new->str = _strdup(str);
+	new->next = *headptr;
 
-return (new);
+	*headptr = new;
+
+	return (new);
 }
 
 
@@ -88,23 +89,24 @@ return (new);
  */
 list_t *add_node_end(list_t **headptr, const char *str)
 {
-list_t *new;
+	list_t *new;
 
-if (!headptr)
-return (NULL);
+	if (!headptr)
+		return (NULL);
 
-if (*headptr)
-return (add_node_end(&((*headptr)->next), str));
+	if (*headptr)
+		return (add_node_end(&((*headptr)->next), str));
 
-new = malloc(sizeof(list_t));
-if (!new)
-return (NULL);
+	new = malloc(sizeof(list_t));
+	if (!new)
+		return (NULL);
 
-new->str = _strdup(str);
-new->next = *headptr;
-*headptr = new;
+	new->str = _strdup(str);
+	new->next = *headptr;
 
-return (new);
+	*headptr = new;
+
+	return (new);
 }
 
 
@@ -114,11 +116,11 @@ return (new);
  */
 void free_list(list_t **headptr)
 {
-if (!*headptr)
-return;
+	if (!*headptr)
+		return;
 
-free_list(&((*headptr)->next));
-free((*headptr)->str);
-free(*headptr);
-*headptr = NULL;
+	free_list(&((*headptr)->next));
+	free((*headptr)->str);
+	free(*headptr);
+	*headptr = NULL;
 }

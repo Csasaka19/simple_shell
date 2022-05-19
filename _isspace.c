@@ -7,5 +7,5 @@
  */
 bool _isspace(int c)
 {
-return (c == ' ' || (c >= 0x09 && c <= 0x0d));
+	return (c == ' ' || (c >= 0x09 && c <= 0x0d));
 }
