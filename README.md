@@ -1,8 +1,6 @@
 # 0x16. C - Simple Shell
 
 #GROUPWORK
-# contributors
-Bashir Billow and Clive Sasaka 
 
 # Background Context
 
