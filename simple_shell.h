@@ -1,4 +1,3 @@
-
 #ifndef SIMPLE_SHELL_H
 #define SIMPLE_SHELL_H
 
@@ -19,6 +18,7 @@ extern char **environ;
 #define BUFSIZE 256
 #define TOKENSIZE 64
 #define PRINT(c) (write(STDOUT_FILENO, c, _strlen(c)))
+#define FAIL -1
 #define PROMPT "$ "
 
 

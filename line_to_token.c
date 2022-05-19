@@ -27,7 +27,7 @@ if (i + 2 >= size)
 {
 new_size = size * 2;
 data->args = _realloc(data->args, size * sizeof(char *),
-new_size * sizeof(char *));
+new_size *sizeof(char *));
 if (data->args == NULL)
 return (FAIL);
 size = new_size;

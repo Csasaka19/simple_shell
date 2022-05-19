@@ -19,7 +19,7 @@ while ((blt + F)->cmd)
 {
 if (_strcmp(data->args[0], (blt + F)->cmd) == 0)
 return ((blt + F)->f(data));
-i++;
+F++;
 }
 return (FAIL);
 }

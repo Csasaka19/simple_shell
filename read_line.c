@@ -1,4 +1,4 @@
-#iinclude "simple_shell.h"
+#include "simple_shell.h"
 /**
  * read_line - read a line from the standard input
  * @data: pointer to the struct of data
@@ -23,14 +23,14 @@ return (FAIL);
 if (c == '\n')
 {
 *csr_ptr = '\0';
-return (SUCCESS);
+return (0);
 }
 if (csr_ptr + 2 >= end_ptr)
 {
 new_size = size * 2;
 length = csr_ptr - data->line;
 data->line = _realloc(data->line, size * sizeof(char),
-new_size * sizeof(char));
+new_size *sizeof(char));
 if (data->line == NULL)
 return (FAIL);
 size = new_size;

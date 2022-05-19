@@ -16,7 +16,7 @@ if (data->args[1] == NULL)
 SETOWD(data->oldpwd);
 if (chdir(home) < 0)
 return (FAIL);
-return (SUCCESS);
+return (0);
 }
 if (_strcmp(data->args[1], "-") == 0)
 {
@@ -39,6 +39,6 @@ SETOWD(data->oldpwd);
 if (chdir(data->args[1]) < 0)
 return (FAIL);
 }
-return (SUCCESS);
+return (0);
 }
 #undef GETCWD

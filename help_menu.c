@@ -27,5 +27,5 @@ return (FAIL);
 }
 }
 PRINT("\n");
-return (SUCCESS);
+return (0);
 }
